@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
+using Recruitment.API.Models;
 using Xunit;
 
 namespace Recruitment.Tests
@@ -41,7 +43,13 @@ namespace Recruitment.Tests
             var httpClient = new HttpClient(handlerMock.Object);
             mockFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(httpClient);
 
-            var hashController = new HashController(mockFactory.Object);
+
+            Settings app = new Settings() { ApiUrls = new ApiUrls(){ CalculateMD5 = "http://test"} }; 
+            var mockOptions = new Mock<IOptions<Settings>>();
+            // We need to set the Value of IOptions to be the SampleOptions Class
+            mockOptions.Setup(ap => ap.Value).Returns(app);
+
+            var hashController = new HashController(mockFactory.Object, mockOptions.Object);
 
             var result = await hashController.PostAsync(loginContract);
 
