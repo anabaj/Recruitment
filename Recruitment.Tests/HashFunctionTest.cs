@@ -2,20 +2,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Moq;
-using Moq.Protected;
-using Newtonsoft.Json;
-using Recruitment.API.Controllers;
-using Recruitment.API.Models;
 using Recruitment.Contracts;
 using Recruitment.Functions;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Recruitment.Tests

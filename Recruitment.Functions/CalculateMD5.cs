@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Recruitment.Contracts;
 using System.Security.Cryptography;
 using System.Text;
@@ -33,7 +31,7 @@ namespace Recruitment.Functions
 
         private static string GetMD5Hash(string source)
         {
-            var hash = string.Empty;
+            string hash;
             using (var md5Hash = MD5.Create())
             {
                 var sourceBytes = Encoding.UTF8.GetBytes(source);

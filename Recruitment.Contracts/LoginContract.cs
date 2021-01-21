@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Recruitment.Contracts
+﻿namespace Recruitment.Contracts
 {
     public class LoginContract
     {

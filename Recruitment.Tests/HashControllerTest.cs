@@ -3,9 +3,7 @@ using Moq;
 using Moq.Protected;
 using Newtonsoft.Json;
 using Recruitment.API.Controllers;
-using Recruitment.API.Models;
 using Recruitment.Contracts;
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -49,6 +47,7 @@ namespace Recruitment.Tests
 
             var actual = JsonConvert.SerializeObject(((OkObjectResult)result).Value);
             var expected = JsonConvert.SerializeObject(loginHashContract);
+
 
             Assert.Equal(expected, actual);
 

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Recruitment.API.Models;
 using Recruitment.Contracts;
 
 namespace Recruitment.API.Controllers
@@ -18,14 +13,9 @@ namespace Recruitment.API.Controllers
     {
         private readonly HttpClient _httpClient;
 
-        //public HashController(HttpClient httpClient)
-        //{
-        //    _httpClient = httpClient;
-        //}
-
         public HashController(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClientFactory.CreateClient(); ;
+            _httpClient = httpClientFactory.CreateClient();
         }
 
 
