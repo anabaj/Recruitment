@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Recruitment.API.Models;
 
 namespace Recruitment.API
 {
@@ -19,8 +20,8 @@ namespace Recruitment.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
-
             services.AddControllers();
+            services.Configure<Settings>(Configuration.GetSection("Settings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
